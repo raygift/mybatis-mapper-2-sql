@@ -27,7 +27,8 @@ type FormatVisitor struct{}
 
 func (f *FormatVisitor) Enter(n ast.Node) (node ast.Node, skipChildren bool) {
 	if v, ok := n.(*driver.ValueExpr); ok {
-		v.Type.Charset = ""
+		v.Type.SetCharset("")
+		// v.Type.Charset = ""
 	}
 	return n, false
 }
